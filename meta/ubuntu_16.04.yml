@@ -1,0 +1,15 @@
+- name: Configure Linux bonding master interface (mode 6)
+  template:
+    src: templates/ubuntu_bond.cfg.j2
+    dest: /etc/network/interfaces.d/{{ linux_bonding_InterfaceName }}.cfg
+  notify: restart networking.service
+  when: ansible_virtualization_type != 'docker'
+
+
+- name: Configure Linux bonding slave interfaces
+  template:
+    src: templates/ubuntu_bond_slave.cfg.j2
+    dest: /etc/network/interfaces.d/{{ linux_bonding_InterfaceName }}_{{ item }}.cfg
+  with_items: '{{ linux_bonding_SlaveNics }}'
+  notify: restart networking.service
+  when: ansible_virtualization_type != 'docker'

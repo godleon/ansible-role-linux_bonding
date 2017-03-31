@@ -1,0 +1,8 @@
+# The primary network interface
+auto {{ linux_bonding_InterfaceName }}
+iface {{ linux_bonding_InterfaceName }} inet manual
+      pre-up ifconfig $IFACE up
+      post-down ifconfig $IFACE down
+      bond-slaves none
+      bond-mode 6
+      bond-miimon 100
