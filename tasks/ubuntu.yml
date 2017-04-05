@@ -16,7 +16,7 @@
 - name: Configure Linux bonding slave interfaces
   template:
     src: templates/ubuntu_bond_slave.cfg.j2
-    dest: /etc/network/interfaces.d/{{ linux_bonding_InterfaceName }}_{{ item }}.cfg
+    dest: /etc/network/interfaces.d/{{ item }}.cfg
   with_items: '{{ linux_bonding_SlaveNics }}'
   notify: restart networking.service
   when: ansible_virtualization_type != 'docker'

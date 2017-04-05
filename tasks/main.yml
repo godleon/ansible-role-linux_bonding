@@ -9,4 +9,4 @@
 
 
 # Configure the networking environment depends on the distribution
-- include: '{{ ansible_distribution | lower }}_{{ ansible_distribution_version }}.yml'
+- include: '{{ ansible_distribution | lower }}.yml'
