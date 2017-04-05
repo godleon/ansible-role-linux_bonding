@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/godleon/ansible-role-linux_bonding.svg?branch=master)](https://travis-ci.org/godleon/ansible-role-linux_bonding)
+
+
 Role Name
 =========
 
