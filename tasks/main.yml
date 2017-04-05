@@ -1,2 +1,10 @@
 ---
 # tasks file for ansible-role-linux_bonding
+
+- name: Enable kernel modules - Bonding
+  modprobe:
+    name: 'bonding'
+    state: present
+
+# Configure the networking environment depends on the distribution
+- include: '{{ ansible_distribution | lower }}_{{ ansible_distribution_version }}.yml'
