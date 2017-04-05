@@ -11,7 +11,7 @@ Requirements
 
 ### Hardware
 
-The target machine is going to be provisioned should have multiple NICs for the bonding interface.
+The target machine is going to be provisioned should have multiple NICs for the bonding interface. (**bonding mode 6**, needless to configure switch)
 
 ### Software
 
