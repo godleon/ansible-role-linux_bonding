@@ -2,5 +2,5 @@
 # handlers file for ansible-role-linux_bonding
 - name: restart networking.service
   service:
-    name: networking.service
+    name: networking
     state: restarted
