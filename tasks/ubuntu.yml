@@ -1,8 +1,8 @@
-# - name: Config kernel modules - Bonding
-#   lineinfile:
-#     dest: /etc/modules
-#     line: 'bonding'
-#   when: ansible_virtualization_type != 'docker'
+- name: Config kernel modules - Bonding
+  lineinfile:
+    dest: /etc/modules
+    line: 'bonding'
+  when: ansible_virtualization_type != 'docker'
 
 
 - name: Configure Linux bonding master interface (mode 6)
