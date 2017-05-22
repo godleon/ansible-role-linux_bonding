@@ -1,9 +1,10 @@
 ---
 # defaults file for ansible-role-linux_bonding
 
-linux_bonding_InterfaceName: 'bond0'
-linux_bonding_SlaveNics:
-  - 'nic1'
-  - 'nic2'
-  - 'nic3'
-  - 'nic4'
+linux_bonding:
+  InterfaceName: 'bond0'
+  SlaveNics:
+    - 'nic1'
+    - 'nic2'
+    - 'nic3'
+    - 'nic4'

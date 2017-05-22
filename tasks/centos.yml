@@ -1,15 +1,18 @@
+- name: stop NetworkManager.service
+  service:
+    name: NetworkManager.service
+    state: stopped
+
 - name: Configure Linux bonding master interface (mode 6)
   template:
     src: "templates/{{ ansible_os_family }}_bond.cfg.j2"
-    dest: /etc/network/interfaces.d/{{ linux_bonding.InterfaceName }}.cfg
+    dest: /etc/sysconfig/network-scripts/ifcfg-{{ linux_bonding.InterfaceName }}.cfg
   notify: "restart network service in {{ ansible_os_family }} family"
-  when: ansible_virtualization_type != 'docker'
 
 
 - name: Configure Linux bonding slave interfaces
   template:
     src: "templates/{{ ansible_os_family }}_bond_slave.cfg.j2"
-    dest: /etc/network/interfaces.d/{{ item }}.cfg
+    dest: /etc/sysconfig/network-scripts/ifcfg-{{ item }}.cfg
   with_items: '{{ linux_bonding.SlaveNics }}'
   notify: "restart network service in {{ ansible_os_family }} family"
-  when: ansible_virtualization_type != 'docker'
